@@ -32,4 +32,4 @@ export const routes = (app: Express) => {
 
     res.json(await httpGet(url, params));
   });
-}
+};

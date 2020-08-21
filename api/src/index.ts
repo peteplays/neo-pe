@@ -7,7 +7,7 @@ import { routes } from './routes';
 const app = express();
 const port = config.envs.port;
 
-app.use(cors())
+app.use(cors());
 app.use((_, res, next) => {
 	res.header('Access-Control-Allow-Origin', '*');
 	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
