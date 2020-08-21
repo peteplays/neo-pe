@@ -1,0 +1,10 @@
+{
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#e74d27",
+    "statusBar.foreground": "#333"
+  },
+  "cSpell.words": [
+    "apod",
+    "envs"
+  ],
+}
