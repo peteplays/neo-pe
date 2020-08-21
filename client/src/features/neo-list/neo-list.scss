@@ -1,0 +1,15 @@
+.neo-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  ul {
+    padding-left: 8px;
+  }
+
+  a {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+  }
+}

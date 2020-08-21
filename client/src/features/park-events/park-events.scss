@@ -1,0 +1,26 @@
+#park-events {
+  button {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    margin-bottom: 8px;
+  }
+
+  li {
+    padding-top: 20px;
+  }
+
+  .slider {
+    overflow-y: scroll;
+    max-height: 2500px;
+    box-sizing: border-box;
+
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: ease;
+
+    &.closed {
+      max-height: 0;
+    }
+  }
+}

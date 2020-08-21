@@ -5,7 +5,7 @@ import httpGet from './shared/httpGet';
 
 export const routes = (app: Express) => {
   app.get('/', (_, res) => {
-    res.send('Welcome to the Near Earth Objects and Park Events finder API!')
+    res.send('Welcome to the Near Earth Objects and Park Events finder API!');
   });
 
   app.get('/nasa-neo', async (req, res) => {

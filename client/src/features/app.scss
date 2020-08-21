@@ -1,0 +1,80 @@
+@import '../styles/variables';
+
+body {
+  font-family: 'Baloo Tamma 2', cursive;
+  color: $fontDark;
+}
+
+main {
+  width: 960px;
+  margin: 10px auto;
+}
+
+h1,
+h3,
+p {
+  text-align: center;
+}
+
+h3 {
+  margin-bottom: 0;
+}
+
+p,
+li {
+  font-size: 20px;
+}
+
+button,
+.button {
+  background-color: $blue;
+  color: #eee;
+  border: 2px solid $lightBlue;
+  border-radius: 4px;
+  padding: 4px 6px 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: 0;
+
+  &:hover {
+    background-color: $lightBlue;
+    border: 2px solid darken($blue, 30);
+    color: $fontDark;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lists {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+  }
+}
+
+.card {
+  position: relative;
+  border-radius: 4px;
+  background-color: rgba($cardColor, 51%);
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid darken($cardColor, 15);
+  width: 100%;
+}
+
+
