@@ -11,16 +11,9 @@ const ParkEvents = () => {
   const [eventDescription, setEventDescription] = useState('');
 
   const handleDisplayingEventDescription = (title: string) => {
-    switch (true) {
-      case title === '':
-        setEventDescription(title);
-        break;
-      case title === eventDescription:
-        setEventDescription('');
-        break;
-      default:
-        setEventDescription(title);
-    }
+    title === eventDescription
+      ? setEventDescription('')
+      : setEventDescription(title);
   };
 
   const render = () => {

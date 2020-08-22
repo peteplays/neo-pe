@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 import { AppThunk, RootState } from '../../store';
 
@@ -19,7 +19,7 @@ const initialState: IState = {
   loading: false,
   hasError: false,
   data: [],
-}
+};
 
 const parkEventsSlice = createSlice({
   name: 'parkEvents',

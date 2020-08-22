@@ -2,19 +2,15 @@ import React from 'react';
 
 const NumberButton = ({ text, clickAdd, clickSub }: { text: number, clickAdd: CallableFunction, clickSub: CallableFunction }) =>
   <>
-    <button
-      onClick={() => clickSub()}
-    >
+    <button onClick={() => clickSub()}>
       -
-      </button>
+    </button>
     <span>
       {text}
     </span>
-    <button
-      onClick={() => clickAdd()}
-    >
+    <button onClick={() => clickAdd()}>
       +
-      </button>
+    </button>
   </>;
 
 export default NumberButton;
