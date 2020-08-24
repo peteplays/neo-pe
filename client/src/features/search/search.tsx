@@ -17,8 +17,8 @@ const currentDate = new Date();
 
 const Search = () => {
   const dispatch = useDispatch();
-  const [selectedMonth, setSelectedMonth] = useState<number>(currentDate.getMonth());
   const [selectedYear, setSelectedYear] = useState<number>(currentDate.getFullYear());
+  const [selectedMonth, setSelectedMonth] = useState<number>(currentDate.getMonth());
   const [selectedDate, setSelectedDay] = useState<number>(currentDate.getDate());
 
   const fetchData = () => {
