@@ -7,7 +7,7 @@ import { Loading, Error } from '../../shared';
 import './park-events.scss';
 
 const ParkEvents = () => {
-  const { loading, hasError, data } = useSelector(parkEventsSelector);
+  const { loading, errorMessage, data } = useSelector(parkEventsSelector);
   const [eventDescription, setEventDescription] = useState('');
 
   const handleDisplayingEventDescription = (title: string) => {
@@ -18,7 +18,7 @@ const ParkEvents = () => {
 
   const render = () => {
     if (loading) return <Loading el={'Park Events'} />
-    if (hasError) return <Error />
+    if (errorMessage) return <Error message={errorMessage} />
 
     return (
       <div id='park-events'>

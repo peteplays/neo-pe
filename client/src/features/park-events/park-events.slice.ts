@@ -4,7 +4,7 @@ import { AppThunk, RootState } from '../../store';
 
 interface IState {
   loading: boolean;
-  hasError: boolean;
+  errorMessage: string | undefined;
   data: IParkEventsItem[];
 }
 
@@ -17,7 +17,7 @@ interface IParkEventsItem {
 
 const initialState: IState = {
   loading: false,
-  hasError: false,
+  errorMessage: undefined,
   data: [],
 };
 
@@ -30,11 +30,11 @@ const parkEventsSlice = createSlice({
     },
     parkEventsSuccess: (state, { payload }) => {
       state.loading = false;
-      state.hasError = false;
       state.data = payload.data;
     },
-    parkEventsFailure: state => {
-      state.hasError = true;
+    parkEventsFailure: (state, { payload }) => {
+      state.loading = false;
+      state.errorMessage = payload;
     },
   },
 });
@@ -50,9 +50,14 @@ export const fetchParkEvents = (date: string, pageSize = 20, pageNumber = 1): Ap
     const r = await fetch(`http://localhost:5555/park-events?pageSize=${pageSize}&pageNumber=${pageNumber}&dateStart=${date}&dateEnd=${date}`);
     const data = await r.json();
 
+    if (data.error) {
+      dispatch(parkEventsFailure(data.error.message));
+      return;
+    }
+
     dispatch(parkEventsSuccess(data));
   } catch (error) {
-    dispatch(parkEventsFailure());
+    dispatch(parkEventsFailure(error));
   }
 }
 

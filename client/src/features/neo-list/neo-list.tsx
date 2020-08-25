@@ -7,11 +7,11 @@ import { Loading, Error } from '../../shared';
 import './neo-list.scss';
 
 const NeoList = () => {
-  const { loading, hasError, data } = useSelector(neoListSelector);
+  const { loading, errorMessage, data } = useSelector(neoListSelector);
 
   const render = () => {
     if (loading) return <Loading el={'Near Earth Objects'} />
-    if (hasError) return <Error />
+    if (errorMessage) return <Error message={errorMessage} />
 
     return (
       <>
