@@ -5,7 +5,7 @@ import { flattenNEO } from '../../utils';
 
 interface IState {
   loading: boolean;
-  errorMessage: string | undefined;
+  errorMessage?: string;
   data: INEOListItem[];
 }
 

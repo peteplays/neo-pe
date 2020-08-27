@@ -4,7 +4,7 @@ import { AppThunk, RootState } from '../../store';
 
 interface IState {
   loading: boolean;
-  errorMessage: string | undefined;
+  errorMessage?: string;
   data: IParkEventsItem[];
 }
 
