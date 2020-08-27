@@ -17,23 +17,23 @@ const currentDate = new Date();
 
 const Search = () => {
   const dispatch = useDispatch();
-  const [selectedMonth, setSelectedMonth] = useState<number>(currentDate.getMonth());
   const [selectedYear, setSelectedYear] = useState<number>(currentDate.getFullYear());
+  const [selectedMonth, setSelectedMonth] = useState<number>(currentDate.getMonth());
   const [selectedDate, setSelectedDay] = useState<number>(currentDate.getDate());
 
   const fetchData = () => {
-    dispatch(fetchNEO(`${selectedYear}-${selectedMonth + 1}-${selectedDate}`))
-    dispatch(fetchParkEvents(`${selectedYear}-${selectedMonth + 1}-${selectedDate}`))
+    dispatch(fetchNEO(`${selectedYear}-${selectedMonth + 1}-${selectedDate}`));
+    dispatch(fetchParkEvents(`${selectedYear}-${selectedMonth + 1}-${selectedDate}`));
   };
 
   const handleYearChange = (action: Action) => {
     switch (true) {
       case action === Action.add:
-        setSelectedYear(selectedYear + 1)
+        setSelectedYear(selectedYear + 1);
         setSelectedDay(1);
         break;
       case action === Action.sub:
-        setSelectedYear(selectedYear - 1)
+        setSelectedYear(selectedYear - 1);
         setSelectedDay(1);
         break;
     }

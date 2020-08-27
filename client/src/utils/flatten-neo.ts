@@ -3,7 +3,7 @@ import { INEORawData, INEOListItem } from "../features/neo-list/neo-list.slice";
 
 export const flattenNEO = (obj: INEORawData) =>
   Object.entries(obj.near_earth_objects).reduce((acc: INEOListItem[], [date, data]) => {
-    data.forEach((d) => {
+    data.forEach((d) =>
       d.close_approach_data.forEach((cap) => {
         acc.push({
           date,
@@ -14,8 +14,8 @@ export const flattenNEO = (obj: INEORawData) =>
           missDistance: setNumber(cap.miss_distance.miles),
           velocity: setNumber(cap.relative_velocity.miles_per_hour),
         });
-      });
-    });
+      })
+    );
 
     return acc;
   }, []);

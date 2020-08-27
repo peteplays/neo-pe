@@ -17,7 +17,7 @@ const httpGet = async (url: string, params?: any) => {
 
     return result.data;
   } catch (err) {
-    console.log(err);
+    return err.response.data;
   }
 }
 

@@ -5,7 +5,7 @@ import { flattenNEO } from '../../utils';
 
 interface IState {
   loading: boolean;
-  hasError: boolean;
+  errorMessage: string | undefined;
   data: INEOListItem[];
 }
 
@@ -46,7 +46,7 @@ export interface INEOListItem {
 
 const initialState: IState = {
   loading: false,
-  hasError: false,
+  errorMessage: undefined,
   data: [],
 }
 
@@ -59,11 +59,11 @@ const neoListSlice = createSlice({
     },
     neoListSuccess: (state, { payload }) => {
       state.loading = false;
-      state.hasError = false;
       state.data = payload;
     },
-    neoListFailure: state => {
-      state.hasError = true;
+    neoListFailure: (state, { payload }) => {
+      state.loading = false;
+      state.errorMessage = payload;
     },
   },
 });
@@ -79,9 +79,14 @@ export const fetchNEO = (date: string): AppThunk => async dispatch => {
     const r = await fetch(`http://localhost:5555/nasa-neo?start_date=${date}&end_date=${date}`);
     const data = await r.json();
 
+    if (data.error) {
+      dispatch(neoListFailure(data.error.message));
+      return;
+    }
+
     dispatch(neoListSuccess(flattenNEO(data)));
   } catch (error) {
-    dispatch(neoListFailure());
+    dispatch(neoListFailure(error));
   }
 }
 
