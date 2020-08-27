@@ -8,7 +8,7 @@ import NumberButton from './number-button';
 
 import './search.scss';
 
-enum Action {
+export enum Action {
   add,
   sub
 }
@@ -59,8 +59,7 @@ const Search = () => {
     <div id='search'>
       <NumberButton
         text={selectedYear}
-        clickAdd={() => handleYearChange(Action.add)}
-        clickSub={() => handleYearChange(Action.sub)}
+        click={(a: Action) => handleYearChange(a)}
       />
 
       <select
@@ -72,8 +71,7 @@ const Search = () => {
 
       <NumberButton
         text={selectedDate}
-        clickAdd={() => handleDateChange(Action.add)}
-        clickSub={() => handleDateChange(Action.sub)}
+        click={(a: Action) => handleDateChange(a)}
       />
 
       <button onClick={fetchData}>

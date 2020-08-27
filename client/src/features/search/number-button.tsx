@@ -1,14 +1,16 @@
 import React from 'react';
 
-const NumberButton = ({ text, clickAdd, clickSub }: { text: number, clickAdd: CallableFunction, clickSub: CallableFunction }) =>
+import { Action } from './search';
+
+const NumberButton = ({ text, click }: { text: number, click: CallableFunction }) =>
   <>
-    <button onClick={() => clickSub()}>
+    <button onClick={() => click(Action.sub)}>
       -
     </button>
     <span>
       {text}
     </span>
-    <button onClick={() => clickAdd()}>
+    <button onClick={() => click(Action.add)}>
       +
     </button>
   </>;
