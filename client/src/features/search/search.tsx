@@ -27,25 +27,21 @@ const Search = () => {
   };
 
   const handleYearChange = (action: Action) => {
-    switch (true) {
-      case action === Action.add:
-        setSelectedYear(selectedYear + 1);
-        setSelectedDay(1);
-        break;
-      case action === Action.sub:
-        setSelectedYear(selectedYear - 1);
-        setSelectedDay(1);
-        break;
-    }
+    const year = action === Action.add
+      ? selectedYear + 1
+      : selectedYear - 1;
+
+    setSelectedYear(year);
+    setDayPerYearAndMonth(year, selectedMonth);
   };
 
-  const handleMonthChange = (val: number) => {
-    setSelectedMonth(val);
-    setSelectedDay(1);
+  const handleMonthChange = (month: number) => {
+    setSelectedMonth(month);
+    setDayPerYearAndMonth(selectedYear, month);
   };
 
   const handleDateChange = (action: Action) => {
-    const maxDaysInMonth = +daysInMonths(selectedYear)[selectedMonth];
+    const maxDaysInMonth = daysInMonths(selectedYear)[selectedMonth];
 
     switch (true) {
       case action === Action.add && maxDaysInMonth > selectedDate:
@@ -62,6 +58,14 @@ const Search = () => {
         break;
     }
   };
+
+  const setDayPerYearAndMonth = (year: number, month: number) => {
+    const maxDaysInMonth = daysInMonths(year)[month];
+
+    maxDaysInMonth > selectedDate
+      ? setSelectedDay(selectedDate)
+      : setSelectedDay(maxDaysInMonth);
+  }
 
   return (
     <div id='search'>
