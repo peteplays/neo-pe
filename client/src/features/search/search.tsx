@@ -45,12 +45,20 @@ const Search = () => {
   };
 
   const handleDateChange = (action: Action) => {
+    const maxDaysInMonth = +daysInMonths(selectedYear)[selectedMonth];
+
     switch (true) {
-      case action === Action.add && +daysInMonths(selectedYear)[selectedMonth] > selectedDate:
+      case action === Action.add && maxDaysInMonth > selectedDate:
         setSelectedDay(selectedDate + 1);
         break;
       case action === Action.sub && selectedDate > 1:
         setSelectedDay(selectedDate - 1);
+        break;
+      case action === Action.add && maxDaysInMonth === selectedDate:
+        setSelectedDay(1);
+        break;
+      case action === Action.sub && maxDaysInMonth > selectedDate:
+        setSelectedDay(maxDaysInMonth);
         break;
     }
   };
