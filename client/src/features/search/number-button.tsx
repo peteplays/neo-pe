@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { ReactEventHandler } from 'react';
 
 import { Action } from './search';
 
+const Btn = ({ text, click }: { text: string, click: ReactEventHandler }) =>
+  <button onClick={click}>
+    {text}
+  </button>;
+
 const NumberButton = ({ text, click }: { text: number, click: CallableFunction }) =>
   <>
-    <button onClick={() => click(Action.sub)}>
-      -
-    </button>
-    <span>
-      {text}
-    </span>
-    <button onClick={() => click(Action.add)}>
-      +
-    </button>
+    <Btn text={'-'} click={() => click(Action.sub)} />
+    <span>{text}</span>
+    <Btn text={'+'} click={() => click(Action.add)} />
   </>;
 
 export default NumberButton;

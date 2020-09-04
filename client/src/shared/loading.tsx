@@ -2,5 +2,5 @@ import React from 'react';
 
 import './loading.scss';
 
-export const Loading = ({ el }: { el: string }) =>
-  <p id='loading'>{el} Loading</p>;
+export const Loading = ({ name }: { name: string }) =>
+  <p id='loading'>{name} Loading</p>;
