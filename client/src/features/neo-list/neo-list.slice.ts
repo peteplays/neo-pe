@@ -38,7 +38,7 @@ export interface INEOListItem {
   velocity: string;
   date: string;
   diameter: string;
-  hazard: string;
+  hazardous: string;
   name: string;
   jplLink: string;
   missDistance: string;

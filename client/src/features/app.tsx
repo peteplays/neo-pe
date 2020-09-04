@@ -1,8 +1,8 @@
 import React from 'react';
 
+import Search from './search/search';
 import NeoList from './neo-list/neo-list';
 import ParkEvents from './park-events/park-events';
-import Search from './search/search';
 
 import './app.scss';
 
